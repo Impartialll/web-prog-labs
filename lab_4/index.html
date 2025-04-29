@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="form-section">
+        <h2>Форма користувача</h2>
+        <form id="userForm" novalidate>
+            <label>
+                Ім'я:
+                <input type="text" id="name">
+                <small class="error" id="nameError"></small>
+            </label>
+
+            <label>
+                Вік:
+                <input type="number" id="age">
+                <small class="error" id="ageError"></small>
+            </label>
+
+            <label>
+                Email:
+                <input type="email" id="email">
+                <small class="error" id="emailError"></small>
+            </label>
+
+            <button type="submit">Відправити</button>
+        </form>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Галерея</h2>
+        <div id="gallery" class="gallery"></div>
+
+        <div class="buttons">
+            <button id="addImage">Додати зображення</button>
+            <button id="removeImage">Видалити зображення</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

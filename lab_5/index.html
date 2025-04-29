@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="weather-section">
+        <h1>Отримати погоду</h1>
+
+        <div class="form">
+            <input type="number" id="latitude" placeholder="Широта (Latitude)" step="any">
+            <input type="number" id="longitude" placeholder="Довгота (Longitude)" step="any">
+            <button id="getWeather">Отримати погоду</button>
+        </div>
+
+        <div class="city-select">
+            <h3>Або виберіть місто:</h3>
+            <select id="city">
+                <option value="">-- Оберіть місто --</option>
+                <option value="50.4501,30.5234">Київ</option>
+                <option value="49.8397,24.0297">Львів</option>
+                <option value="46.4825,30.7233">Одеса</option>
+                <option value="50.6199,26.2516">Рівне</option>
+                <option value="49.9884,36.2328">Харків</option>
+                <option value="48.9215,24.7097">Івано-Франківськ</option>
+            </select>
+        </div>
+
+        <div class="geo">
+            <button id="detectLocation">Визначити мою локацію</button>
+        </div>
+
+        <div id="weatherResult" class="result"></div>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

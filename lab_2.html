@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        fieldset {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        .payment-options {
+            margin-top: 10px;
+        }
+
+        .payment-options label {
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="get">
+        <h1>Замовлення товару</h1>
+
+        <fieldset>
+            <legend>Основна інформація</legend>
+
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Адреса доставки:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Деталі замовлення</legend>
+
+            <label for="product">Вибір товару:</label>
+            <select id="product" name="product">
+                <option value="phone">Смартфон</option>
+                <option value="laptop">Ноутбук</option>
+                <option value="headphones">Навушники</option>
+                <option value="camera">Камера</option>
+            </select>
+
+            <label for="quantity">Кількість товару: <span id="quantity-value">1</span></label>
+            <input type="range" id="quantity" name="quantity" min="1" max="10" value="1"
+                oninput="document.getElementById('quantity-value').innerText = this.value">
+
+            <label>Спосіб оплати:</label>
+            <div class="payment-options">
+                <label><input type="radio" name="payment" value="card" checked> Карткою</label>
+                <label><input type="radio" name="payment" value="cash"> Готівкою</label>
+            </div>
+        </fieldset>
+
+        <button type="submit">Оформити замовлення</button>
+    </form>
+
+</body>
+
+</html>
