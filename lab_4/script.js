@@ -44,14 +44,20 @@ document.getElementById('userForm').addEventListener('submit', (e) => {
   }
 });
 
-// галерея
 const gallery = document.getElementById('gallery');
 const addImageBtn = document.getElementById('addImage');
 const removeImageBtn = document.getElementById('removeImage');
 
-function loadGallery() {
-  gallery.innerHTML = '';
-  const images = JSON.parse(localStorage.getItem('gallery')) || [];
+function getGalleryImages() {
+  return JSON.parse(localStorage.getItem('gallery')) || [];
+}
+
+function setGalleryImages(images) {
+  localStorage.setItem('gallery', JSON.stringify(images));
+}
+
+function renderGallery(images) {
+  gallery.innerHTML = ''; 
   images.forEach(src => {
     const img = document.createElement('img');
     img.src = src;
@@ -59,23 +65,32 @@ function loadGallery() {
   });
 }
 
+function loadGallery() {
+  const images = getGalleryImages();
+  renderGallery(images);
+}
+
+function getRandomId() {
+  return Math.floor(Math.random() * 1000);
+}
+
 function addImage() {
-  const images = JSON.parse(localStorage.getItem('gallery')) || [];
-  const newImage = `https://picsum.photos/200/150?random=${Date.now()}`;
+  const images = getGalleryImages();
+  const randomId = getRandomId();
+  const newImage = `https://picsum.photos/id/${randomId}/200/150`;
   images.push(newImage);
-  localStorage.setItem('gallery', JSON.stringify(images));
-  loadGallery();
+  setGalleryImages(images);
+  renderGallery(images);
 }
 
 function removeImage() {
-  let images = JSON.parse(localStorage.getItem('gallery')) || [];
+  const images = getGalleryImages();
   images.pop();
-  localStorage.setItem('gallery', JSON.stringify(images));
-  loadGallery();
+  setGalleryImages(images);
+  renderGallery(images);
 }
 
 addImageBtn.addEventListener('click', addImage);
 removeImageBtn.addEventListener('click', removeImage);
 
-// завантажити галерею при старті
 loadGallery();
